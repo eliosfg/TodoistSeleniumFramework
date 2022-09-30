@@ -1,3 +1,6 @@
+using AventStack.ExtentReports;
+using AventStack.ExtentReports.Reporter;
+
 namespace CommonLibs.Utils
 {
     public class ExtentReportUtils
@@ -23,6 +26,11 @@ namespace CommonLibs.Utils
         public void addTestLog(Status status, string comment)
         {
             extentTest.Log(status, comment);
+        }
+
+        public void addScreenshot(string screenshotFilename)
+        {
+            extentTest.AddScreenCaptureFromPath(screenshotFilename);
         }
 
         public void flushReport()

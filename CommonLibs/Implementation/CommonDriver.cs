@@ -22,7 +22,10 @@ namespace CommonLibs.Implementation
 
             if (browserType.Equals("chrome")) 
             {
-                Driver = new ChromeDriver();
+                ChromeOptions chromeOptions = new ChromeOptions();
+                chromeOptions.AddArguments("--lang=en");
+
+                Driver = new ChromeDriver(chromeOptions);
             } else if (browserType.Equals("edge"))
             {
                 Driver = new EdgeDriver();

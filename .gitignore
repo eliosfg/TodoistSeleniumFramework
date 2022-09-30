@@ -416,3 +416,5 @@ FodyWeavers.xsd
 .vscode
 
 # End of https://www.toptal.com/developers/gitignore/api/visualstudiocode,csharp
+/reports
+/screenshots

@@ -8,7 +8,7 @@ namespace Guru99Application.Pages
 
         private IWebElement username => _driver.FindElement(By.Name("uid"));
         private IWebElement password => _driver.FindElement(By.Name("password"));
-        private IWebElement loginButton => _driver.FindElement(By.Id("btnLogin"));
+        private IWebElement loginButton => _driver.FindElement(By.Name("btnLogin"));
 
         public Guru99LoginPage(IWebDriver driver)
         {

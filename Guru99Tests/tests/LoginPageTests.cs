@@ -1,3 +1,4 @@
+using AventStack.ExtentReports;
 using CommonLibs.Implementation;
 using NUnit.Framework;
 
@@ -10,7 +11,7 @@ namespace Guru99Tests.tests
         {
             extentReportUtils.createATestCase("Verify Login Test");
             extentReportUtils.addTestLog(Status.Info, "Performing Login");
-            loginPage.LoginToApplication("", "");
+            loginPage.LoginToApplication("user", "password");
 
             string expectedTitle = "Guru99 Bank Manager HomePage";
             string actualTitle = CmnDriver.GetPageTitle();

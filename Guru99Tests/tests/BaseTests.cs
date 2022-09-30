@@ -1,9 +1,12 @@
 using System;
 using System.IO;
+using AventStack.ExtentReports;
 using CommonLibs.Implementation;
+using CommonLibs.Utils;
 using Guru99Application.Pages;
 using Microsoft.Extensions.Configuration;
 using NUnit.Framework;
+using NUnit.Framework.Interfaces;
 
 namespace Guru99Tests.tests
 {
@@ -14,6 +17,8 @@ namespace Guru99Tests.tests
         private IConfigurationRoot _configuration;
         public ExtentReportUtils extentReportUtils;
         string url;
+
+        ScreenshotUtils screenshot;
 
         string currentProjectDirectory;
         string  currentSolutionDirectory;
@@ -41,15 +46,29 @@ namespace Guru99Tests.tests
             extentReportUtils.addTestLog(Status.Info, "Browser Type - " + browserType);
             
             url = _configuration["baseUrl"];
-            extentReportUtils.addTestLog(Status.Info, "Base URL - " + baseUrl);
+            extentReportUtils.addTestLog(Status.Info, "Base URL - " + url);
             CmnDriver.NavigateToFirstURL(url);
 
             loginPage = new Guru99LoginPage(CmnDriver.Driver);
+
+            screenshot = new ScreenshotUtils(CmnDriver.Driver);
         }
 
         [TearDown]
         public void TearDown()
         {
+            string currentExecutionTime = DateTime.Now.ToString("yyyy'-'MM'-'dd'T'HH'-'mm'-'ss");
+            string screenshotFilename = $@"{currentSolutionDirectory}\screenshots\test-{currentExecutionTime}.jpeg";
+
+            Console.WriteLine(TestContext.CurrentContext.Result.Outcome);
+            
+            if (TestContext.CurrentContext.Result.Outcome == ResultState.Error)
+            {
+                extentReportUtils.addTestLog(Status.Fail, "One or more step failed");
+                screenshot.CaptureAndSaveScreenshot(screenshotFilename);
+                extentReportUtils.addScreenshot(screenshotFilename);
+            }
+
             CmnDriver.CloseAllBrowser();
         }
 
