@@ -413,5 +413,6 @@ FodyWeavers.xsd
 .vscode/*.code-snippets
 
 # Ignore code-workspaces
+.vscode
 
 # End of https://www.toptal.com/developers/gitignore/api/visualstudiocode,csharp
