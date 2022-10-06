@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32825.248
 MinimumVisualStudioVersion = 15.0.26124.0
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TodoistApplication", "Guru99Application\TodoistApplication.csproj", "{AC984E49-8921-43D6-ADFF-F08679167CAA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TodoistApplication", "TodoistApplication\TodoistApplication.csproj", "{AC984E49-8921-43D6-ADFF-F08679167CAA}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommonLibs", "CommonLibs\CommonLibs.csproj", "{CAD267A5-797D-4E82-AB56-C5C6D13346A7}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TodoistTests", "Guru99Tests\TodoistTests.csproj", "{25040497-E691-4C9A-BB42-77C45244B9A8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TodoistTests", "TodoistTests\TodoistTests.csproj", "{25040497-E691-4C9A-BB42-77C45244B9A8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmailApplication", "EmailApplication\EmailApplication.csproj", "{A18392A5-B8E7-4D95-92A6-EFF5EB6A4FFC}"
 EndProject
