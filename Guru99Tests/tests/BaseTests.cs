@@ -3,17 +3,17 @@ using System.IO;
 using AventStack.ExtentReports;
 using CommonLibs.Implementation;
 using CommonLibs.Utils;
-using Guru99Application.Pages;
+using TodoistApplication.Pages;
 using Microsoft.Extensions.Configuration;
 using NUnit.Framework;
 using NUnit.Framework.Interfaces;
 
-namespace Guru99Tests.tests
+namespace TodoistTests.tests
 {
     public class BaseTests
     {
         public CommonDriver CmnDriver;
-        public Guru99LoginPage loginPage;
+        public LoginPage loginPage;
         private IConfigurationRoot _configuration;
         public ExtentReportUtils extentReportUtils;
         string url;
@@ -49,7 +49,7 @@ namespace Guru99Tests.tests
             extentReportUtils.addTestLog(Status.Info, "Base URL - " + url);
             CmnDriver.NavigateToFirstURL(url);
 
-            loginPage = new Guru99LoginPage(CmnDriver.Driver);
+            loginPage = new LoginPage(CmnDriver.Driver);
 
             screenshot = new ScreenshotUtils(CmnDriver.Driver);
         }
@@ -62,7 +62,7 @@ namespace Guru99Tests.tests
 
             Console.WriteLine(TestContext.CurrentContext.Result.Outcome);
             
-            if (TestContext.CurrentContext.Result.Outcome == ResultState.Error)
+            if (TestContext.CurrentContext.Result.Outcome == ResultState.Failure)
             {
                 extentReportUtils.addTestLog(Status.Fail, "One or more step failed");
                 screenshot.CaptureAndSaveScreenshot(screenshotFilename);

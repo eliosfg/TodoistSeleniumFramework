@@ -1,12 +1,12 @@
 ﻿using System;
 
-namespace Guru99Application
+namespace TodoistApplication
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Console.WriteLine("Hello TodoistApplication!");
         }
     }
 }

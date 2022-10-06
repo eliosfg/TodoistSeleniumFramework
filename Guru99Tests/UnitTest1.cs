@@ -1,6 +1,6 @@
 using NUnit.Framework;
 
-namespace Guru99Tests
+namespace TodoistTests
 {
     public class Tests
     {

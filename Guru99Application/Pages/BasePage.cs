@@ -1,6 +1,6 @@
 using CommonLibs.Implementation;
 
-namespace Guru99Application.Pages
+namespace TodoistApplication.Pages
 {
     public class BasePage
     {

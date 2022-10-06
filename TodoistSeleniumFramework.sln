@@ -1,13 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26124.0
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32825.248
 MinimumVisualStudioVersion = 15.0.26124.0
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Guru99Application", "Guru99Application\Guru99Application.csproj", "{AC984E49-8921-43D6-ADFF-F08679167CAA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TodoistApplication", "Guru99Application\TodoistApplication.csproj", "{AC984E49-8921-43D6-ADFF-F08679167CAA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonLibs", "CommonLibs\CommonLibs.csproj", "{CAD267A5-797D-4E82-AB56-C5C6D13346A7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommonLibs", "CommonLibs\CommonLibs.csproj", "{CAD267A5-797D-4E82-AB56-C5C6D13346A7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Guru99Tests", "Guru99Tests\Guru99Tests.csproj", "{25040497-E691-4C9A-BB42-77C45244B9A8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TodoistTests", "Guru99Tests\TodoistTests.csproj", "{25040497-E691-4C9A-BB42-77C45244B9A8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmailApplication", "EmailApplication\EmailApplication.csproj", "{A18392A5-B8E7-4D95-92A6-EFF5EB6A4FFC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,9 +19,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 		Release|x64 = Release|x64
 		Release|x86 = Release|x86
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{AC984E49-8921-43D6-ADFF-F08679167CAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -58,5 +57,23 @@ Global
 		{25040497-E691-4C9A-BB42-77C45244B9A8}.Release|x64.Build.0 = Release|Any CPU
 		{25040497-E691-4C9A-BB42-77C45244B9A8}.Release|x86.ActiveCfg = Release|Any CPU
 		{25040497-E691-4C9A-BB42-77C45244B9A8}.Release|x86.Build.0 = Release|Any CPU
+		{A18392A5-B8E7-4D95-92A6-EFF5EB6A4FFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A18392A5-B8E7-4D95-92A6-EFF5EB6A4FFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A18392A5-B8E7-4D95-92A6-EFF5EB6A4FFC}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{A18392A5-B8E7-4D95-92A6-EFF5EB6A4FFC}.Debug|x64.Build.0 = Debug|Any CPU
+		{A18392A5-B8E7-4D95-92A6-EFF5EB6A4FFC}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{A18392A5-B8E7-4D95-92A6-EFF5EB6A4FFC}.Debug|x86.Build.0 = Debug|Any CPU
+		{A18392A5-B8E7-4D95-92A6-EFF5EB6A4FFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A18392A5-B8E7-4D95-92A6-EFF5EB6A4FFC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A18392A5-B8E7-4D95-92A6-EFF5EB6A4FFC}.Release|x64.ActiveCfg = Release|Any CPU
+		{A18392A5-B8E7-4D95-92A6-EFF5EB6A4FFC}.Release|x64.Build.0 = Release|Any CPU
+		{A18392A5-B8E7-4D95-92A6-EFF5EB6A4FFC}.Release|x86.ActiveCfg = Release|Any CPU
+		{A18392A5-B8E7-4D95-92A6-EFF5EB6A4FFC}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7929CB87-4CE7-480A-B140-870EB5AE61EB}
 	EndGlobalSection
 EndGlobal
