@@ -35,5 +35,20 @@ namespace EmailApplication.Implementation
 
             await email.SendAsync();
         }
+
+        public async Task SendHtmlEmail(string emailRecipient, string emailSubject, string emailBody)
+        {
+            var email = Email
+                .From(config.GetEmailSender(), config.GetFrom())
+                .To(emailRecipient)
+                .Subject(emailSubject)
+                .UsingTemplateFromFile("C:\\Users\\elios\\source\\repos\\Todoist-Automation\\reports\\index.html",
+                new
+                {
+                    Name = "Recipient Name",
+                });
+
+            await email.SendAsync();
+        }
     }
 }
