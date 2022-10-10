@@ -58,6 +58,7 @@ namespace CommonLibs.Implementation
             if (Driver != null)
             {
                 Driver.Quit();
+                Driver.Dispose();
             }
         }
 
