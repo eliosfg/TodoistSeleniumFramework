@@ -16,6 +16,10 @@
                     _driverManager = new EdgeDriverManager();
                     break;
 
+                case "firefox":
+                    _driverManager = new FirefoxDriverManager();
+                    break;
+
                 default:
                     break;
             }
