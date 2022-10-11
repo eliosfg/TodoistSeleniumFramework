@@ -31,18 +31,9 @@ namespace TodoistTests.tests
             HomePage homePage = new HomePage(webDriverManager.Driver);
             
             string expectedTitle = "Today";
-            
             string actualTitle = homePage.GetHeaderTitle();
 
             Assert.Contains(expectedTitle, actualTitle);
-        }
-
-        [Fact]
-        public void VerifyTest2()
-        {
-            BaseTestFixture.ExtentReportUtils.createATestCase("Verify Test 2");
-
-            webDriverManager.NavigateToURL("https://www.google.com");
         }
 
         public void Dispose()

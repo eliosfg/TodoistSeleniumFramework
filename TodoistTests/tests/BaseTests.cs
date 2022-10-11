@@ -32,7 +32,7 @@ namespace TodoistTests.tests
             currentSolutionDirectory = Directory.GetParent(workingDirectory).Parent.Parent.Parent.FullName;
             _configuration = new ConfigurationBuilder().AddJsonFile(currentProjectDirectory + "/config/appSettings.json").Build();
             
-            reportFilename = currentSolutionDirectory + "/reports/guru99TestReport.html";
+            reportFilename = currentSolutionDirectory + @"\reports\TestReport.html";
             extentReportUtils = new ExtentReportUtils(reportFilename);
         }
 

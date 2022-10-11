@@ -32,4 +32,8 @@
     <ProjectReference Include="..\TodoistApplication\TodoistApplication.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="reports\" />
+  </ItemGroup>
+
 </Project>

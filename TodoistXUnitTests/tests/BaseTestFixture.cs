@@ -7,12 +7,13 @@ namespace TodoistTests.tests
     public class BaseTestFixture : IDisposable
     {
         public Config Config { get; }
-        public ExtentReportUtils ExtentReportUtils { get; }
-
+        public ExtentReportUtils ExtentReportUtils { get => extentReportUtils; }
+        private ExtentReportUtils extentReportUtils;
         public BaseTestFixture()
         {
             Config = new();
-            ExtentReportUtils = new ExtentReportUtils(Config.GetReportFilename());
+            string reportFileName = Config.GetReportFilename();
+            extentReportUtils = new ExtentReportUtils(reportFileName);
             
         }
 

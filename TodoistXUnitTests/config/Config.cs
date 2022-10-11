@@ -31,7 +31,7 @@ namespace TodoistXUnitTests.config
 
         public string GetReportFilename()
         {
-            return CurrentSolutionDirectory + "/reports/testResults.html";
+            return CurrentSolutionDirectory + @"\reports\testResults.html";
         }
     }
 }
