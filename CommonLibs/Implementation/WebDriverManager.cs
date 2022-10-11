@@ -1,46 +1,40 @@
+﻿using OpenQA.Selenium;
 using System;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
-using OpenQA.Selenium.Edge;
 
 namespace CommonLibs.Implementation
 {
-    public class CommonDriver
+    public abstract class WebDriverManager
     {
-        public IWebDriver Driver { get; private set; }
+        private IWebDriver driver;
         public int PageLoadTimeout { private get => pageLoadTimeout; set => pageLoadTimeout = value; }
         public int ElementDetectionTimeout { private get => elementDetectionTimeout; set => elementDetectionTimeout = value; }
-
         private int pageLoadTimeout;
-
         private int elementDetectionTimeout;
 
-        public CommonDriver(string browserType)
+        protected abstract void createWebDriver();
+
+        public IWebDriver Driver
         {
-            pageLoadTimeout = 50;
-            elementDetectionTimeout = 10;
-
-            if (browserType.Equals("chrome")) 
+            get
             {
-                ChromeOptions chromeOptions = new ChromeOptions();
-                chromeOptions.AddArguments("--lang=en");
-
-                Driver = new ChromeDriver(chromeOptions);
-            } else if (browserType.Equals("edge"))
-            {
-                Driver = new EdgeDriver();
-            } else
-            {
-                throw new Exception("Invalid Browser Type " + browserType);
+                if (driver == null)
+                {
+                    createWebDriver();
+                }
+                return driver;
             }
+
+            set { driver = value; }
         }
 
-        public void NavigateToFirstURL(string url)
+        public void NavigateToURL(string url)
         {
             url = url.Trim();
 
             Driver.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(PageLoadTimeout);
             Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(elementDetectionTimeout);
+
+            Driver.Navigate().GoToUrl(url);
 
             Driver.Url = url;
         }

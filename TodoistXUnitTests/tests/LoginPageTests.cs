@@ -2,35 +2,33 @@ using AventStack.ExtentReports;
 using CommonLibs.Implementation;
 using CommonLibs.Utils;
 using TodoistApplication.Pages;
-using Xunit.Abstractions;
 
 namespace TodoistTests.tests
 {
     [Collection("Sequence")]
     public class LoginPageTests : IClassFixture<BaseTestFixture>, IDisposable
     {
-        public CommonDriver CmnDriver { get; }
+        WebDriverManager webDriverManager;
         public BaseTestFixture BaseTestFixture { get; }
         public LoginPage loginPage;
         ScreenshotUtils screenshot;
 
-        public LoginPageTests(BaseTestFixture baseTestFixture, ITestOutputHelper outpuHelper)
+        public LoginPageTests(BaseTestFixture baseTestFixture)
         {
             BaseTestFixture = baseTestFixture;
-            CmnDriver = new CommonDriver(BaseTestFixture.Config.GetBrowserType());
-            loginPage = new LoginPage(CmnDriver.Driver);
-            screenshot = new ScreenshotUtils(CmnDriver.Driver);
-            
+            webDriverManager = BrowserDriverFactory.GetBrowser(BaseTestFixture.Config.GetBrowserType());
+            loginPage = new LoginPage(webDriverManager.Driver);
+            screenshot = new ScreenshotUtils(webDriverManager.Driver);
         }
 
         [Fact]
         public void VerifyLoginTest()
         {
             BaseTestFixture.ExtentReportUtils.createATestCase("Verify Login Test");
-            CmnDriver.NavigateToFirstURL(BaseTestFixture.Config.GetBaseUrl());
+            webDriverManager.NavigateToURL(BaseTestFixture.Config.GetBaseUrl());
             BaseTestFixture.ExtentReportUtils.addTestLog(Status.Info, "Performing Login");
             loginPage.LoginToApplication("eliosfg@gmail.com", "SaulFuentes1234");
-            HomePage homePage = new HomePage(CmnDriver.Driver);
+            HomePage homePage = new HomePage(webDriverManager.Driver);
             
             string expectedTitle = "Today";
             
@@ -43,8 +41,8 @@ namespace TodoistTests.tests
         public void VerifyTest2()
         {
             BaseTestFixture.ExtentReportUtils.createATestCase("Verify Test 2");
-            CmnDriver.NavigateToFirstURL("https://www.google.com");
-            Console.WriteLine("Test 2");
+
+            webDriverManager.NavigateToURL("https://www.google.com");
         }
 
         public void Dispose()
@@ -62,7 +60,7 @@ namespace TodoistTests.tests
                 extentReportUtils.addScreenshot(screenshotFilename);
             }*/
 
-            CmnDriver.CloseAllBrowser();
+            webDriverManager.CloseAllBrowser();
         }
     }
 }

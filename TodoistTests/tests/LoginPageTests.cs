@@ -13,15 +13,12 @@ namespace TodoistTests.tests
             extentReportUtils.createATestCase("Verify Login Test");
             extentReportUtils.addTestLog(Status.Info, "Performing Login");
             loginPage.LoginToApplication("eliosfg@gmail.com", "SaulFuentes1234");
-            HomePage homePage = new HomePage(CmnDriver.Driver);
+            HomePage homePage = new HomePage(WebDriverManager.Driver);
 
-            string expectedTitle = "Today Wed Oct 5";
-            
+            string expectedTitle = "Today";
             string actualTitle = homePage.GetHeaderTitle();
 
-            System.Console.WriteLine(actualTitle);
-
-            Assert.AreEqual(expectedTitle, actualTitle);
+            Assert.IsTrue(actualTitle.Contains(expectedTitle));
         }
     }
 }
