@@ -14,7 +14,6 @@ namespace TodoistTests.tests
             Config = new();
             string reportFileName = Config.GetReportFilename();
             extentReportUtils = new ExtentReportUtils(reportFileName);
-            
         }
 
         public void Dispose()

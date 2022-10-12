@@ -35,7 +35,7 @@ namespace TodoistTests.tests
             
             homePage.AddNewTask(taskTitle, taskDescription);
 
-            Assert.True(homePage.IsTaskDisplayed(taskTitle), $"Task \"{taskTitle}\" was not created");
+            Assert.True(homePage.IsTaskItemDisplayed(taskTitle), $"Task \"{taskTitle}\" was not created");
         }
 
         [Theory]
@@ -49,7 +49,40 @@ namespace TodoistTests.tests
             BaseTestFixture.ExtentReportUtils.addTestLog(Status.Info, $"Deleting the task \"{taskTitle}\"");
             homePage.DeleteTask(taskTitle);
 
-            Assert.False(homePage.IsTaskDisplayed(taskTitle));
+            Assert.False(homePage.IsTaskItemDisplayed(taskTitle));
+        }
+
+        [Theory]
+        [InlineData("New edited title", "New edited description")]
+        public void VerifyATaskCanBeEdited(string newTitle, string newDescription)
+        {
+            string firstTitle = "Task title";
+            string firstDescription = "Task description";
+            BaseTestFixture.ExtentReportUtils.createATestCase("Verify a task can be deleted");
+            BaseTestFixture.ExtentReportUtils.addTestLog(Status.Info, "Creating new task");
+            homePage.AddNewTask(firstTitle, firstDescription);
+
+            homePage.EditTask(firstTitle, newTitle, newDescription);
+
+            Assert.False(homePage.IsTaskItemDisplayed(firstTitle));
+            Assert.True(homePage.IsTaskItemDisplayed(newTitle));
+        }
+
+        [Theory]
+        [InlineData("Task title", "Tomorrow")]
+        public void VerifyADueDateCanBeAddedToATask(string tastTitle, string dueDate)
+        {
+            BaseTestFixture.ExtentReportUtils.createATestCase("Verify a due date can be added to a task");
+            BaseTestFixture.ExtentReportUtils.addTestLog(Status.Info, "Creating new task");
+            homePage.AddNewTask(tastTitle, "Task description");
+
+            BaseTestFixture.ExtentReportUtils.addTestLog(Status.Info, $"Set due date: {dueDate}");
+            homePage.SetDueDate(tastTitle, dueDate);
+
+            Assert.False(homePage.IsTaskItemDisplayed(tastTitle));
+
+            InboxPage inboxPage = homePage.GoToInboxPage();
+            Assert.True(inboxPage.IsTaskItemDisplayed(tastTitle));
         }
 
         public void Dispose()
