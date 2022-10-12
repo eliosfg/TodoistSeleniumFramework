@@ -12,7 +12,7 @@ namespace TodoistTests.tests
 {
     public class BaseTests
     {
-        public CommonDriver CmnDriver;
+        public WebDriverManager WebDriverManager;
         public LoginPage loginPage;
         private IConfigurationRoot _configuration;
         public ExtentReportUtils extentReportUtils;
@@ -32,7 +32,7 @@ namespace TodoistTests.tests
             currentSolutionDirectory = Directory.GetParent(workingDirectory).Parent.Parent.Parent.FullName;
             _configuration = new ConfigurationBuilder().AddJsonFile(currentProjectDirectory + "/config/appSettings.json").Build();
             
-            reportFilename = currentSolutionDirectory + "/reports/guru99TestReport.html";
+            reportFilename = currentSolutionDirectory + @"\reports\TestReport.html";
             extentReportUtils = new ExtentReportUtils(reportFilename);
         }
 
@@ -41,17 +41,17 @@ namespace TodoistTests.tests
         {
             extentReportUtils.createATestCase("Setup");
             string browserType = _configuration["browserType"];
-            CmnDriver = new CommonDriver(browserType);
+            WebDriverManager = BrowserDriverFactory.GetBrowser(browserType);
 
             extentReportUtils.addTestLog(Status.Info, "Browser Type - " + browserType);
             
             url = _configuration["baseUrl"];
             extentReportUtils.addTestLog(Status.Info, "Base URL - " + url);
-            CmnDriver.NavigateToFirstURL(url);
+            WebDriverManager.NavigateToURL(url);
 
-            loginPage = new LoginPage(CmnDriver.Driver);
+            loginPage = new LoginPage(WebDriverManager.Driver);
 
-            screenshot = new ScreenshotUtils(CmnDriver.Driver);
+            screenshot = new ScreenshotUtils(WebDriverManager.Driver);
         }
 
         [TearDown]
@@ -69,7 +69,7 @@ namespace TodoistTests.tests
                 extentReportUtils.addScreenshot(screenshotFilename);
             }
 
-            CmnDriver.CloseAllBrowser();
+            WebDriverManager.CloseAllBrowser();
         }
 
         [OneTimeTearDown]

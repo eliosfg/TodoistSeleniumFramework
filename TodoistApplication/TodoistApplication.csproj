@@ -4,13 +4,14 @@
     <TargetFramework>net6.0</TargetFramework>
   </PropertyGroup>
  <ItemGroup>
-    <PackageReference Include="Selenium.WebDriver" Version="3.141.0"/>
-    <PackageReference Include="Selenium.Support" Version="3.141.0"/>
+    <PackageReference Include="DotNetSeleniumExtras.WaitHelpers" Version="3.11.0" />
+    <PackageReference Include="Selenium.WebDriver" Version="3.141.0" />
+    <PackageReference Include="Selenium.Support" Version="3.141.0" />
 	<PackageReference Include="Selenium.WebDriver.ChromeDriver" Version="106.0.5249.6100" />
 
  </ItemGroup>
   <ItemGroup>
   
-  <ProjectReference Include="..\CommonLibs\CommonLibs.csproj"/>
+  <ProjectReference Include="..\CommonLibs\CommonLibs.csproj" />
   </ItemGroup>
 </Project>
