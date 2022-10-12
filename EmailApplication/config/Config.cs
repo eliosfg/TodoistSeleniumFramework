@@ -41,5 +41,10 @@ namespace EmailApplication.config
         {
             return _configuration.GetSection("SmtpClient").Value;
         }
+
+        public string GetHtmlReportPath()
+        {
+            return Directory.GetParent(currentProjectDirectory)?.FullName + @"\TodoistXUnitTests\TestResults\";
+        }
     }
 }
